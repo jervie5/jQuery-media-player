@@ -1,0 +1,17 @@
+
+
+{
+    "song": [
+        {"title": "mood", "file": "mood.mp3"},
+        {"title": "chill", "file": "chill.mp3"},
+        {"title": "impostor", "file": "whenTheImpostor.mp3"}
+
+    ],
+
+
+    "video":[
+        {"title":"Flowers","file":"Flowers.mp4"},
+        {"title":"Sea", "file":"Sea.mp4"},
+        {"title":"Sea", "file":"Sea.mp4"}
+    ]
+}

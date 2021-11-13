@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>progS4G4</title>
+  </head>
+
+  <body>
+    <head>
+      <header>
+        <h1>My Media Player</h1>
+      </header>
+    </head>
+
+    <main>
+      <div id="maincontainer">
+        <div id="buttons"></div>
+
+        <!-- audio -->
+        <audio id="myAudio" controls controlsList="nodownload">
+          <source
+            title=""
+            src=""
+            type=""
+          />
+          your browser does not support audio format
+        </audio>
+
+        <div id="divider"></div>
+
+        <!-- video -->
+
+        <div id="vidButtons"></div>
+
+        <div>
+          <video id="myVideo" width="400">
+            <source
+              title="sea"
+              controls
+              src="assets/video/Sea.mp4"
+              poster="https://loremflickr.com/g/700/400/london/all"
+            />
+          </video>
+        </div>
+      </div>
+    </main>
+
+    <!-- script -->
+    <script>
+      $.ajax({
+        method: "get",
+        url: "media.json",
+        dataType: "json",
+        success: function (data) {
+          var song = data.song;
+          var video = data.video;
+
+          // audio
+
+          $.each(data.song, function (i, el) {
+            var title = el.title;
+            var source = el.file;
+
+            $("#buttons").append(
+              '<button data-src="' +
+                source +
+                '" class="genButtons">' +
+                title +
+                "</button>"
+            );
+
+            $("#buttons").on("click", ".genButtons", function () {
+              var src = $(this).attr("data-src");
+              var path = "assets/audio/";
+
+              $("#myAudio source").attr("src", path + src);
+              var playerAudio = document.getElementById("myAudio");
+              playerAudio.load();
+              // console.log(playerAudio)
+              // console.log($('#myAudio'))
+            });
+          });
+
+          // video
+          $.each(data.video, function (i, el) {
+            var vidTitle = el.title;
+            var vidSource = el.file;
+
+            $("#vidButtons").append(
+              '<button data-src="' +
+                vidSource +
+                '" class="genButtons">' +
+                vidTitle +
+                "</button>"
+            );
+
+            console.log(vidTitle);
+          });
+        },
+      });
+      $("#vidButtons").on("click", ".genButtons", function () {
+        var src = $(this).attr("data-src");
+        var path = "assets/video/";
+
+        $("#myVideo source").attr("src", path + src);
+        var playerVideo = document.getElementById("myVideo");
+        playerVideo.load();
+        console.log(src);
+      });
+    </script>
+  </body>
+</html>

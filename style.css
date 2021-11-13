@@ -1,0 +1,47 @@
+html{
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+body{
+    
+    background-image: linear-gradient(152deg, rgba(2,0,36,1) 0%, rgba(237,119,8,1) 38%, rgba(0,212,255,1) 94%);}
+
+h1{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+#maincontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+#buttons, #vidButtons{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-bottom: 1rem;
+}
+
+.genButtons{
+    margin-bottom: 1rem;
+    width: 8vw;
+
+}
+
+#divider
+    {
+        display: flex;
+        border-left: 2px solid rgb(255, 255, 255);
+        height: 400px;
+       
+       
+      }
